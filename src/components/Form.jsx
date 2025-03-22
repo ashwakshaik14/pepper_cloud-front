@@ -149,9 +149,14 @@ const Form = () => {
           </div>
         </div>
       </div>
-      <button className="create-form-btn" onClick={handleSubmit}>
+      <div className={style.btnContainer}>
+        <button
+          className={style.btn}
+          type="submit"
+          onClick={handleSubmit}>
         CREATE FORM
-      </button>
+        </button>
+      </div>
     </div>
   );
 };
