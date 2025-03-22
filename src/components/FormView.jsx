@@ -12,7 +12,7 @@ function FormView() {
   useEffect(() => {
     const fetchForm = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/api/forms/${id}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/forms/${id}`);
         if (!res.ok) {
           throw new Error("Form not found");
         }

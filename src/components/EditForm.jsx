@@ -19,7 +19,7 @@ const EditForm = () => {
         return;
       }
       try {
-        const res = await fetch(`http://localhost:3000/api/forms/${formId}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/forms/${formId}`);
         if (!res.ok) throw new Error("Failed to fetch form data");
         const data = await res.json();
         setTitle(data.title);
@@ -58,7 +58,7 @@ const EditForm = () => {
     const formData = { title, inputs };
     try {
       const res = await fetch(
-        `http://localhost:3000/api/forms/update/${formId}`,
+        `${import.meta.env.VITE_API_URL}/api/forms/update/${formId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
