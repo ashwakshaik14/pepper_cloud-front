@@ -8,7 +8,7 @@ function Home() {
   useEffect(() => {
     const fetchForms = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/forms`);
+        const res = await fetch(`https://pepper-cloud-back.onrender.com/api/forms`);
         if (!res.ok) {
           throw new Error("Failed to fetch forms");
         }
@@ -26,7 +26,7 @@ function Home() {
     if (!window.confirm("Are you sure you want to delete this form?")) return;
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/forms/delete/${id}`, {
+      const res = await fetch(`https://pepper-cloud-back.onrender.com/api/forms/delete/${id}`, {
         method: "DELETE",
       });
 
