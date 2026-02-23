@@ -12,7 +12,7 @@ function App() {
         try {
           await window.ethereum.request({ method: 'eth_requestAccounts' });
         } catch (error) {
-          console.error('Failed to connect to MetaMask:', error);
+          console.error('Error connecting to MetaMask:', error);
         }
       } else {
         console.error('MetaMask is not installed');
