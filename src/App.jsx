@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './components/Home'
 import Form from './components/Form'
@@ -6,6 +6,21 @@ import FormView from './components/FormView';
 import EditForm from './components/EditForm';
 
 function App() {
+  useEffect(() => {
+    const connectMetaMask = async () => {
+      if (typeof window.ethereum !== 'undefined') {
+        try {
+          await window.ethereum.request({ method: 'eth_requestAccounts' });
+        } catch (error) {
+          console.error('Failed to connect to MetaMask:', error);
+        }
+      } else {
+        console.error('MetaMask is not installed');
+      }
+    };
+    connectMetaMask();
+  }, []);
+
   return (
     <div>
       <BrowserRouter>
@@ -14,7 +29,6 @@ function App() {
           <Route path='/form' element={<Form />} /> {/* Fixed: Changed FormBug to Form */}
           <Route path="/form/:id" element={<FormView />} />
           <Route path="/form/edit/:formId" element={<EditForm />} />
-
         </Routes>
       </BrowserRouter>
     </div>
