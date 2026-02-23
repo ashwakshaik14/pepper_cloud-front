@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/form' element={<FormBug />} /> {/* Intentional bug for self heal */}
+          <Route path='/form' element={<Form />} />
           <Route path="/form/:id" element={<FormView />} />
           <Route path="/form/edit/:formId" element={<EditForm />} />
 
